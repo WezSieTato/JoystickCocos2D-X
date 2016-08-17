@@ -7,6 +7,7 @@
 #include "../SneakyInput/SneakyButtonSkinnedBase.h"
 #include "../SneakyInput/SneakyJoystick.h"
 #include "../SneakyInput/SneakyJoystickSkinnedBase.h"
+#include "../SneakyInput/SneakyJoystickEventListener.hpp"
 #include "../Entities/Player.h"
 #include "../ContactListener.h"
 #include "../Extras/ParallaxScrollNode.h"
@@ -26,6 +27,7 @@ public:
 
 private:
 
+    SneakyJoystickEventListener *joystickListener;
     ContactListener *contactListener;
     Player *player;
     b2World *world;

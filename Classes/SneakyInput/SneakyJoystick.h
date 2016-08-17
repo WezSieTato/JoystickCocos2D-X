@@ -42,6 +42,7 @@ protected:
 private:
 	void updateVelocity(cocos2d::Point point);
 	void setTouchRadius();
+    void sendVelocityEvent();
     cocos2d::EventListenerTouchOneByOne* _touchListener;
 };
 #endif

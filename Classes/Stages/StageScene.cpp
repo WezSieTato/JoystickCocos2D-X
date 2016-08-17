@@ -106,6 +106,13 @@ bool StageScene::init()
     // camera follow the player
     runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite1->getContentSize().width, backgroundSprite1->getContentSize().height)));
     
+    //joystick listener
+    joystickListener = SneakyJoystickEventListener::create();
+    joystickListener->onVelocityChanged = [=](SneakyJoystick* eventJoystick, Event* event){
+        cocos2d::log("Velocity x: %f y: %f", leftJoystick->getVelocity().x, leftJoystick->getVelocity().y);
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(joystickListener, this);
+    
     // rest of framework init process
     scheduleUpdate();
 
@@ -122,7 +129,6 @@ void StageScene::update(float dt)
     {
         player->update(dt);
         player->updateVelocity(leftJoystick->getVelocity());
-        
         if (action1Button->getIsActive())
         {
             player->actionButtonPressed(1);
