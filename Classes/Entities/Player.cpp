@@ -25,7 +25,7 @@ bool Player::init(Layer *layer, b2World *world)
     batchNode = SpriteBatchNode::create("orc/Orc.pvr.ccz");
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("orc/Orc.plist");
-    sprite = CCSprite::createWithSpriteFrameName("Orc_move_right0001.png");
+    sprite = cocos2d::Sprite::createWithSpriteFrameName("Orc_move_right0001.png");
     
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     
@@ -42,7 +42,7 @@ bool Player::init(Layer *layer, b2World *world)
     animationDefault->setDelayPerUnit(1.0 / 1);
     animationDefault->setRestoreOriginalFrame(true);
     
-    animateDefault = CCAnimate::create(animationDefault);
+    animateDefault = cocos2d::Animate::create(animationDefault);
     actionStateDefault = RepeatForever::create(animateDefault);
     actionStateDefault->retain();
 
@@ -59,7 +59,7 @@ bool Player::init(Layer *layer, b2World *world)
     animationMoving->setDelayPerUnit(0.04f);
     animationMoving->setRestoreOriginalFrame(true);
     
-    animateMoving = CCAnimate::create(animationMoving);
+    animateMoving = cocos2d::Animate::create(animationMoving);
     actionStateMoving = RepeatForever::create(animateMoving);
     actionStateMoving->retain();
 
@@ -183,7 +183,7 @@ void Player::changeDirection(int direction)
 {
     if (this->direction != direction && direction == 1)
     {
-        sprite->setFlipX(true);
+        sprite->setFlippedX(true);
         this->direction = direction;
         
         if (state == 2)
@@ -193,7 +193,7 @@ void Player::changeDirection(int direction)
     }
     else if (this->direction != direction && direction == 2)
     {
-        sprite->setFlipX(false);
+        sprite->setFlippedX(false);
         this->direction = direction;
         
         if (state == 2)

@@ -14,7 +14,7 @@ SneakyJoystick::~SneakyJoystick()
 bool SneakyJoystick::initWithRect(Rect rect)
 {
 	bool pRet = false;
-	//if(CCSprite::init()){
+	//if(cocos2d::Sprite::init()){
     stickPosition = Point::ZERO;
 		degrees = 0.0f;
     velocity = Point::ZERO;

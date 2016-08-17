@@ -51,7 +51,7 @@ bool StageScene::init()
     worldSize = Size(1000, visibleSize.height);
     
     // create bottom label
-    LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
+    Label* label = Label::createWithSystemFont("Joystick Cocos2D-X Version 3", "Arial", 12);
     
     label->setPosition(Point(origin.x + visibleSize.width/2,
                             origin.y + label->getContentSize().height));
@@ -76,8 +76,8 @@ bool StageScene::init()
     SneakyJoystickSkinnedBase *joystickBase = SneakyJoystickSkinnedBase::create();
     SneakyJoystick *joystick = new SneakyJoystick();
     joystick->initWithRect(joystickBaseDimensions);
-    joystickBase->setBackgroundSprite(CCSprite::create("joystick/dpadDown.png"));
-    joystickBase->setThumbSprite(CCSprite::create("joystick/joystickDown.png"));
+    joystickBase->setBackgroundSprite(cocos2d::Sprite::create("joystick/dpadDown.png"));
+    joystickBase->setThumbSprite(cocos2d::Sprite::create("joystick/joystickDown.png"));
     joystickBase->setJoystick(joystick);
     joystickBase->setPosition(joystickBasePosition);
     leftJoystick = joystickBase->getJoystick();
@@ -87,9 +87,9 @@ bool StageScene::init()
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
     SneakyButton *button1 = new SneakyButton();
     button1->initWithRect(accelButtonDimensions);
-    action1ButtonBase->setDefaultSprite(CCSprite::create("joystick/action1Down.png"));
-    action1ButtonBase->setActivatedSprite(CCSprite::create("joystick/action1Down.png"));
-    action1ButtonBase->setPressSprite(CCSprite::create("joystick/action1Up.png"));
+    action1ButtonBase->setDefaultSprite(cocos2d::Sprite::create("joystick/action1Down.png"));
+    action1ButtonBase->setActivatedSprite(cocos2d::Sprite::create("joystick/action1Down.png"));
+    action1ButtonBase->setPressSprite(cocos2d::Sprite::create("joystick/action1Up.png"));
     action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();

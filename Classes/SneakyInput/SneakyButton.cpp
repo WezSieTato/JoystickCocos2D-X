@@ -28,7 +28,7 @@ void SneakyButton::setTouchEnabled(bool enabled)
 bool SneakyButton::initWithRect(Rect rect)
 {
 	bool pRet = false;
-	//if(CCSprite::init()){
+	//if(cocos2d::Sprite::init()){
 		
 		bounds = Rect(0, 0, rect.size.width, rect.size.height);
 		center = Point(rect.size.width/2, rect.size.height/2);
