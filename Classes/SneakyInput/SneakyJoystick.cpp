@@ -171,16 +171,3 @@ void SneakyJoystick::ccTouchCancelled(Touch *touch, Event *event)
 {
 	this->ccTouchEnded(touch, event);
 }
-
-void SneakyJoystick::touchDelegateRelease()
-{
-	this->release();
-}
-
-void SneakyJoystick::touchDelegateRetain()
-{
-	this->retain();
-}
-
-
-

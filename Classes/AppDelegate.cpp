@@ -31,7 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->setOpenGLView(eglView);
 
 	// resources setup
-    eglView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+    eglView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 	
     Size frameSize = eglView->getFrameSize();
     

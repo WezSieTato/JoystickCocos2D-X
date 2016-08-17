@@ -23,7 +23,7 @@ bool ParallaxScrollNode::init()
 void ParallaxScrollNode::updateWithVelocity(cocos2d::Vec2 vel, float dt)
 {
     vel = vel * PTM_RATIO;
-    cocos2d::log("count: %zi", _scrollOffsets.size());
+//    cocos2d::log("count: %zi", _scrollOffsets.size());
     
     for (ParallaxScrollOffset * scrollOffset : _scrollOffsets)
     {

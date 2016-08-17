@@ -39,9 +39,6 @@ protected:
 	virtual void ccTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
 	virtual void ccTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event);
 
-	void touchDelegateRelease();
-	void touchDelegateRetain();
-
 private:
 	void updateVelocity(cocos2d::Point point);
 	void setTouchRadius();

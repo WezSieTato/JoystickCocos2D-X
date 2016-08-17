@@ -159,8 +159,8 @@ void StageScene::update(float dt)
     }
     
     // update the background parallax
-    //backgroundLayer->updateWithVelocity(Point(-2.0f, 0), dt);
-    //backgroundLayer->updateWithXPosition(-player->getSprite()->getPosition().x, dt);
+    backgroundLayer->updateWithVelocity(Point(-2.0f, 0), dt);
+    backgroundLayer->updateWithXPosition(-player->getSprite()->getPosition().x, dt);
 }
 
 void StageScene::updatePhysics(float dt)
