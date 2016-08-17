@@ -23,7 +23,7 @@ void ParallaxNodeExtras::incrementOffset(CCPoint offset,CCNode* node)
     {
         CCPointObject *point = (CCPointObject *)_parallaxArray->arr[i];
         CCNode * curNode = point->getChild() ;
-        if( curNode->isEqual(node) )
+        if( curNode == node )
         {
             point->setOffset( ccpAdd(point->getOffset(), offset) );
             break;

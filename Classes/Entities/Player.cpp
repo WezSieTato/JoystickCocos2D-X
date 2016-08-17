@@ -124,7 +124,7 @@ void Player::move(Point velocity)
         changeDirection(2);
         
         impulse = b2Vec2(0.25f * body->GetMass(), 0.0f);
-        body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+        body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
     }
     else if (velocity.x < 0)
     {
@@ -133,7 +133,7 @@ void Player::move(Point velocity)
         changeDirection(1);
         
         impulse = b2Vec2(-0.25f * body->GetMass(), 0.0f);
-        body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+        body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
     }
     else
     {
@@ -175,7 +175,7 @@ void Player::actionButtonPressed(int button)
 {
     if (button == 1)
     {
-        body->ApplyLinearImpulse(b2Vec2(0, body->GetMass() * 3), body->GetWorldCenter());
+        body->ApplyLinearImpulse(b2Vec2(0, body->GetMass() * 3), body->GetWorldCenter(), true);
     }
 }
 

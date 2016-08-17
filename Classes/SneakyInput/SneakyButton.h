@@ -3,8 +3,13 @@
 
 #include "cocos2d.h"
 
-class SneakyButton : public cocos2d::Node, public cocos2d::TargetedTouchDelegate
+class SneakyButton : public cocos2d::Node
 {
+
+public:
+    void setTouchEnabled(bool enabled);
+    bool isTouchEnabled() const;
+    
 protected:
 	cocos2d::Point center;
 	float radiusSq;
@@ -21,8 +26,6 @@ protected:
 	CC_SYNTHESIZE_READONLY(float, radius, Radius);
 
 	//Public methods
-	virtual void onEnterTransitionDidFinish();
-	virtual void onExit();
 	bool initWithRect(cocos2d::Rect rect);
 	void limiter(float delta);
 	void setRadius(float r);
@@ -33,6 +36,10 @@ protected:
 
 	void touchDelegateRelease();
 	void touchDelegateRetain();
+    
+private:
+    cocos2d::EventListenerTouchOneByOne* _touchListener;
+
 };
 
 #endif

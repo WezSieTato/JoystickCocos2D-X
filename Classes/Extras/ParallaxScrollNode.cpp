@@ -12,7 +12,7 @@ bool ParallaxScrollNode::init()
 {
     if ( !CCLayer::init() ) return false;
     
-    _scrollOffsets = new CCArray();
+    _scrollOffsets = CCArray::create();
     CCSize screen = CCDirector::sharedDirector()->getWinSize();
     _range = CCSizeMake(screen.width, screen.height);
     this->setAnchorPoint(ccp(0,0));
@@ -155,7 +155,7 @@ void ParallaxScrollNode::addInfiniteScrollXWithZ(int z, CCPoint ratio, CCPoint p
     va_list args;
     va_start(args, firstObject);
 
-    CCArray *argArray = new CCArray();
+    CCArray *argArray = CCArray::create();
     for (CCSprite *arg = firstObject; arg != NULL; arg = va_arg(args, CCSprite*))
     {
         argArray->addObject(arg);

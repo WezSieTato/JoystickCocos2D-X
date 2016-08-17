@@ -3,8 +3,13 @@
 
 #include "cocos2d.h"
 
-class SneakyJoystick : public cocos2d::Node, public cocos2d::TargetedTouchDelegate
+class SneakyJoystick : public cocos2d::Node
 {
+    
+public:
+    void setTouchEnabled(bool enabled);
+    bool isTouchEnabled() const;
+    
 protected:
 	float joystickRadiusSq;
 	float thumbRadiusSq;
@@ -25,8 +30,6 @@ protected:
 	virtual ~SneakyJoystick();
 
 	bool initWithRect(cocos2d::Rect rect);
-	virtual void onEnterTransitionDidFinish();
-	virtual void onExit();
 	void setIsDPad(bool b);
 	void setJoystickRadius(float r);
 	void setThumbRadius(float r);
@@ -42,6 +45,6 @@ protected:
 private:
 	void updateVelocity(cocos2d::Point point);
 	void setTouchRadius();
-
+    cocos2d::EventListenerTouchOneByOne* _touchListener;
 };
 #endif

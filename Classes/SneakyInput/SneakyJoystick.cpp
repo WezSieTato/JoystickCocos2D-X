@@ -29,19 +29,33 @@ bool SneakyJoystick::initWithRect(Rect rect)
 		
 		//Cocos node stuff
 		setPosition(rect.origin);
+        setTouchEnabled(true);
 		pRet = true;
 	//}
 	return pRet;
 }
 
-void SneakyJoystick::onEnterTransitionDidFinish()
+bool SneakyJoystick::isTouchEnabled() const
 {
-	Director::getInstance()->getTouchDispatcher()->addTargetedDelegate(this, 1, true);
+    return _touchListener != nullptr;
 }
 
-void SneakyJoystick::onExit()
+void SneakyJoystick::setTouchEnabled(bool enabled)
 {
-	Director::getInstance()->getTouchDispatcher()->removeDelegate(this);
+    _eventDispatcher->removeEventListener(_touchListener);
+    _touchListener = nullptr;
+    
+    if (enabled)
+    {
+        _touchListener = EventListenerTouchOneByOne::create();
+        _touchListener->setSwallowTouches(true);
+        _touchListener->onTouchBegan = CC_CALLBACK_2(SneakyJoystick::ccTouchBegan, this);
+        _touchListener->onTouchMoved = CC_CALLBACK_2(SneakyJoystick::ccTouchMoved, this);
+        _touchListener->onTouchEnded = CC_CALLBACK_2(SneakyJoystick::ccTouchEnded, this);
+        _touchListener->onTouchCancelled = CC_CALLBACK_2(SneakyJoystick::ccTouchCancelled, this);
+        
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
+    }
 }
 
 float round(float r) {

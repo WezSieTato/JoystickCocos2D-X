@@ -2,14 +2,27 @@
 
 using namespace cocos2d;
 
-void SneakyButton::onEnterTransitionDidFinish()
+bool SneakyButton::isTouchEnabled() const
 {
-	Director::getInstance()->getTouchDispatcher()->addTargetedDelegate(this, 1, true);
+    return _touchListener != nullptr;
 }
 
-void SneakyButton::onExit()
+void SneakyButton::setTouchEnabled(bool enabled)
 {
-	Director::getInstance()->getTouchDispatcher()->removeDelegate(this);
+    _eventDispatcher->removeEventListener(_touchListener);
+    _touchListener = nullptr;
+    
+    if (enabled)
+    {
+        _touchListener = EventListenerTouchOneByOne::create();
+        _touchListener->setSwallowTouches(true);
+        _touchListener->onTouchBegan = CC_CALLBACK_2(SneakyButton::ccTouchBegan, this);
+        _touchListener->onTouchMoved = CC_CALLBACK_2(SneakyButton::ccTouchMoved, this);
+        _touchListener->onTouchEnded = CC_CALLBACK_2(SneakyButton::ccTouchEnded, this);
+        _touchListener->onTouchCancelled = CC_CALLBACK_2(SneakyButton::ccTouchCancelled, this);
+        
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
+    }
 }
 
 bool SneakyButton::initWithRect(Rect rect)
@@ -28,6 +41,7 @@ bool SneakyButton::initWithRect(Rect rect)
 		rateLimit = 1.0f/120.0f;
 		
 		setPosition(rect.origin); //not sure about this
+        setTouchEnabled(true);
 		pRet = true;
 	//}
 	return pRet;
