@@ -1,7 +1,5 @@
 #include "SneakyJoystick.h"
 
-#include "SneakyJoystickEvent.hpp"
-
 using namespace cocos2d;
 
 #define SJ_PI 3.14159265359f
@@ -66,6 +64,7 @@ float round(float r) {
 
 void SneakyJoystick::updateVelocity(Point point)
 {
+    Point oldVelovity = velocity;
 	// Calculate distance and angle from the center.
 	float dx = point.x;
 	float dy = point.y;
@@ -75,7 +74,7 @@ void SneakyJoystick::updateVelocity(Point point)
 		velocity = Point::ZERO;
 		degrees = 0.0f;
 		stickPosition = point;
-        this->sendVelocityEvent();
+        this->onVelocityChanged(this, oldVelovity, velocity);
 		return;
 	}
 
@@ -106,14 +105,7 @@ void SneakyJoystick::updateVelocity(Point point)
 	// Update the thumb's position
 	stickPosition = Point(dx, dy);
     
-    this->sendVelocityEvent();
-}
-
-void SneakyJoystick::sendVelocityEvent()
-{
-    SneakyJoystickEvent *event = new SneakyJoystickEvent();
-    event->setUserData(this);
-    _eventDispatcher->dispatchEvent(event);
+    this->onVelocityChanged(this, oldVelovity, velocity);
 }
 
 void SneakyJoystick::setIsDPad(bool b)

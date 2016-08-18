@@ -73,6 +73,7 @@ bool SneakyButton::ccTouchBegan(Touch *touch, Event *event)
 		float dSq = location.x*location.x + location.y*location.y;
 		if(radiusSq > dSq){
 			active = true;
+            this->onFire(this);
 			if (!isHoldable && !isToggleable){
 				value = 1;
 				this->schedule(schedule_selector(SneakyButton::limiter), rateLimit);
@@ -115,14 +116,4 @@ void SneakyButton::ccTouchEnded(Touch *touch, Event *event)
 void SneakyButton::ccTouchCancelled(Touch *touch, Event *event)
 {
 	this->ccTouchEnded(touch, event);
-}
-
-void SneakyButton::touchDelegateRelease()
-{
-	this->release();
-}
-
-void SneakyButton::touchDelegateRetain()
-{
-	this->retain();
 }

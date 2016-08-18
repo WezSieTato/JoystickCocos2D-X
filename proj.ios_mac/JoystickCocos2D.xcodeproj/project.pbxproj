@@ -88,10 +88,6 @@
 		9EB5554E1D64E51C005B642A /* joystick in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5554B1D64E51C005B642A /* joystick */; };
 		9EB5554F1D64E51C005B642A /* orc in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5554C1D64E51C005B642A /* orc */; };
 		9EB555501D64E51C005B642A /* orc in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5554C1D64E51C005B642A /* orc */; };
-		9EB555561D651682005B642A /* SneakyJoystickEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EB555541D651682005B642A /* SneakyJoystickEvent.cpp */; };
-		9EB555571D651682005B642A /* SneakyJoystickEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EB555541D651682005B642A /* SneakyJoystickEvent.cpp */; };
-		9EB5555A1D6518F1005B642A /* SneakyJoystickEventListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EB555581D6518F1005B642A /* SneakyJoystickEventListener.cpp */; };
-		9EB5555B1D6518F1005B642A /* SneakyJoystickEventListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EB555581D6518F1005B642A /* SneakyJoystickEventListener.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -218,10 +214,6 @@
 		9EB555481D64E510005B642A /* BackgroundGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundGame.png; sourceTree = "<group>"; };
 		9EB5554B1D64E51C005B642A /* joystick */ = {isa = PBXFileReference; lastKnownFileType = folder; path = joystick; sourceTree = "<group>"; };
 		9EB5554C1D64E51C005B642A /* orc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = orc; sourceTree = "<group>"; };
-		9EB555541D651682005B642A /* SneakyJoystickEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystickEvent.cpp; sourceTree = "<group>"; };
-		9EB555551D651682005B642A /* SneakyJoystickEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SneakyJoystickEvent.hpp; sourceTree = "<group>"; };
-		9EB555581D6518F1005B642A /* SneakyJoystickEventListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystickEventListener.cpp; sourceTree = "<group>"; };
-		9EB555591D6518F1005B642A /* SneakyJoystickEventListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SneakyJoystickEventListener.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -464,10 +456,6 @@
 				9EB555281D64E502005B642A /* SneakyJoystick.h */,
 				9EB555291D64E502005B642A /* SneakyJoystickSkinnedBase.cpp */,
 				9EB5552A1D64E502005B642A /* SneakyJoystickSkinnedBase.h */,
-				9EB555541D651682005B642A /* SneakyJoystickEvent.cpp */,
-				9EB555551D651682005B642A /* SneakyJoystickEvent.hpp */,
-				9EB555581D6518F1005B642A /* SneakyJoystickEventListener.cpp */,
-				9EB555591D6518F1005B642A /* SneakyJoystickEventListener.hpp */,
 			);
 			path = SneakyInput;
 			sourceTree = "<group>";
@@ -640,12 +628,10 @@
 				9EB555421D64E502005B642A /* SneakyJoystickSkinnedBase.cpp in Sources */,
 				9EB555401D64E502005B642A /* SneakyJoystick.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				9EB5555A1D6518F1005B642A /* SneakyJoystickEventListener.cpp in Sources */,
 				9EB555461D64E502005B642A /* StageScene1.cpp in Sources */,
 				9EB555361D64E502005B642A /* ParallaxNodeExtras.cpp in Sources */,
 				9EB5553C1D64E502005B642A /* SneakyButton.cpp in Sources */,
 				9EB555341D64E502005B642A /* Player.cpp in Sources */,
-				9EB555561D651682005B642A /* SneakyJoystickEvent.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9EB555301D64E502005B642A /* ContactListener.cpp in Sources */,
 				9EB5553E1D64E502005B642A /* SneakyButtonSkinnedBase.cpp in Sources */,
@@ -665,10 +651,8 @@
 				9EB555331D64E502005B642A /* Entity.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				9EB5555B1D6518F1005B642A /* SneakyJoystickEventListener.cpp in Sources */,
 				9EB555311D64E502005B642A /* ContactListener.cpp in Sources */,
 				9EB555431D64E502005B642A /* SneakyJoystickSkinnedBase.cpp in Sources */,
-				9EB555571D651682005B642A /* SneakyJoystickEvent.cpp in Sources */,
 				9EB555411D64E502005B642A /* SneakyJoystick.cpp in Sources */,
 				9EB5553B1D64E502005B642A /* ParallaxScrollOffset.cpp in Sources */,
 				9EB5553D1D64E502005B642A /* SneakyButton.cpp in Sources */,

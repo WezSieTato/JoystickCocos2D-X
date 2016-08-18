@@ -107,11 +107,12 @@ bool StageScene::init()
     runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite1->getContentSize().width, backgroundSprite1->getContentSize().height)));
     
     //joystick listener
-    joystickListener = SneakyJoystickEventListener::create();
-    joystickListener->onVelocityChanged = [=](SneakyJoystick* eventJoystick, Event* event){
-        cocos2d::log("Velocity x: %f y: %f", leftJoystick->getVelocity().x, leftJoystick->getVelocity().y);
+    leftJoystick->onVelocityChanged = [=](SneakyJoystick* eventJoystick, Point oldValue, Point newValue){
+        cocos2d::log("Velocity x: %f y: %f", newValue.x, newValue.y);
     };
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(joystickListener, this);
+    action1Button->onFire = [=](SneakyButton *button) {
+        cocos2d::log("Fire in the hole!!!");
+    };
     
     // rest of framework init process
     scheduleUpdate();
