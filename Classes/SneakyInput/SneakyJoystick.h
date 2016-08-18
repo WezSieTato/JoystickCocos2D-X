@@ -18,7 +18,7 @@ class SneakyJoystick : public cocos2d::Node
 	CC_SYNTHESIZE_READONLY(float, deadRadius, DeadRadius);
     
 public:
-	virtual ~SneakyJoystick();
+    SneakyJoystick();
 
 	bool initWithRect(cocos2d::Rect rect);
     

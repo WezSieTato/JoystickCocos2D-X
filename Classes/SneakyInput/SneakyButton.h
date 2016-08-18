@@ -15,6 +15,7 @@ class SneakyButton : public cocos2d::Node
 	CC_SYNTHESIZE_READONLY(float, radius, Radius);
     
 public:
+    SneakyButton();
 	bool initWithRect(cocos2d::Rect rect);
     
 	void limiter(float delta);

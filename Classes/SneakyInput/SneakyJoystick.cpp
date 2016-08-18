@@ -7,8 +7,9 @@ using namespace cocos2d;
 #define SJ_RAD2DEG 180.0f/SJ_PI
 #define SJ_DEG2RAD SJ_PI/180.0f
 
-SneakyJoystick::~SneakyJoystick()
+SneakyJoystick::SneakyJoystick() : onVelocityChanged(nullptr)
 {
+    
 }
 
 bool SneakyJoystick::initWithRect(Rect rect)
@@ -74,8 +75,10 @@ void SneakyJoystick::updateVelocity(Point point)
 		velocity = Point::ZERO;
 		degrees = 0.0f;
 		stickPosition = point;
-        this->onVelocityChanged(this, oldVelovity, velocity);
-		return;
+        if (onVelocityChanged) {
+            this->onVelocityChanged(this, oldVelovity, velocity);
+        }
+        return;
 	}
 
 	float angle = atan2f(dy, dx); // in radians
@@ -105,7 +108,9 @@ void SneakyJoystick::updateVelocity(Point point)
 	// Update the thumb's position
 	stickPosition = Point(dx, dy);
     
-    this->onVelocityChanged(this, oldVelovity, velocity);
+    if (onVelocityChanged) {
+        this->onVelocityChanged(this, oldVelovity, velocity);
+    }
 }
 
 void SneakyJoystick::setIsDPad(bool b)

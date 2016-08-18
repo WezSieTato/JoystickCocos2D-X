@@ -2,6 +2,11 @@
 
 using namespace cocos2d;
 
+SneakyButton::SneakyButton() : onFire(nullptr)
+{
+    
+}
+
 bool SneakyButton::isTouchEnabled() const
 {
     return _touchListener != nullptr;
@@ -73,7 +78,9 @@ bool SneakyButton::ccTouchBegan(Touch *touch, Event *event)
 		float dSq = location.x*location.x + location.y*location.y;
 		if(radiusSq > dSq){
 			active = true;
-            this->onFire(this);
+            if (onFire) {
+                this->onFire(this);
+            }
 			if (!isHoldable && !isToggleable){
 				value = 1;
 				this->schedule(schedule_selector(SneakyButton::limiter), rateLimit);
